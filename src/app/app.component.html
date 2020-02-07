@@ -1,0 +1,5 @@
+
+    <router-outlet *ngIf="apiDown === false"></router-outlet>
+    <h1 *ngIf="apiDown === true" class="text-center">
+        Pas de réponse du serveur.
+    </h1>

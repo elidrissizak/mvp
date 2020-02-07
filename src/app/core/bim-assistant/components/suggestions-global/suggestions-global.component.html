@@ -1,0 +1,163 @@
+<section>
+
+    <!--<div *ngIf="selectedCluster != null && selectedCluster != undefined" >
+        <span  *ngIf="selectedCluster.cluster != null && selectedCluster.cluster != undefined">
+                {{selectedCluster.cluster.number}}
+        </span>
+
+    </div>-->
+
+    <accordion>
+
+        <accordion-group [panelClass]="customClass">
+            <div accordion-heading class="accordion-heading-add">
+                <div class="row">
+                        <div class="col-md-1">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <input type="radio" name="cluster" value="0" [(ngModel)]="selectedCluster" (click)="setCluster('0')" />
+                                </div>
+                                <div class="col-md-7 icon-cluster text-center">
+
+                                    <icon ref="icon-cluster"></icon>
+                                    <span translate>&nbsp;</span>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-10">
+                            <div  class="align-middle">
+                                <strong [innerHTML]="'BA.SUGGESTIONS.CREATE_CLUSTER' | translate"></strong>
+                            </div>
+                        </div>
+                        
+
+                </div>
+
+                <!-- NO RESULTS end -->
+            </div>
+        </accordion-group>
+
+
+        <accordion-group [panelClass]="customClass"
+                         *ngFor="let cluster of clusters"
+                         [isDisabled]="true"
+                         [isOpen]="cluster.open">
+
+            <div accordion-heading
+                 class="accordion-heading">
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <input type="radio" name="cluster" [value]="cluster" [(ngModel)]="selectedCluster" (click)="setCluster(cluster)" />
+
+                            </div>
+                            <div class="col-md-7 icon-cluster text-center">
+
+                                <icon ref="icon-cluster"></icon>
+                                <span translate>&nbsp;</span>
+
+                            </div>
+                        </div>
+
+                    </div>
+                   <!-- <div class="col-md-1 icon-cluster text-center">
+                        <icon ref="icon-cluster"></icon>
+                        <span translate>BA.SUGGESTIONS.CLUSTER</span>
+                    </div>-->
+
+                    <div class="col-md-2">
+                        <strong>{{cluster.cluster.number}} {{cluster.cluster.label}}</strong>
+                        <span translate>BA.SUGGESTIONS.NAME_AND_LABEL</span>
+                    </div>
+
+                    <div class="col-md-1">
+                        <strong>{{cluster.organization.code}}</strong>
+                        <span translate>BA.SUGGESTIONS.ORGANIZATION</span>
+                    </div>
+
+                    <div class="col-md-2">
+                        <strong>{{cluster.supplier.code}} {{cluster.supplier.group}} {{cluster.supplier.label}}</strong>
+                        <span translate>BA.SUGGESTIONS.SUPPLIER</span>
+                    </div>
+
+                    <div class="col-md-1">
+                        <strong *ngIf="cluster.cluster.invoicingStatus === true || cluster.cluster.invoicingStatus === null"
+                                class="blocked"
+                                translate>BA.BLOCKED</strong>
+                        <strong *ngIf="cluster.cluster.invoicingStatus === false"
+                                class="unblocked"
+                                translate>BA.UNBLOCKED</strong>
+                        <span translate>BA.SUGGESTIONS.STATE</span>
+                    </div>
+
+                    <div class="col-md-2">
+                        <strong>{{cluster.cluster.managerIpn}} {{cluster.cluster.managerName}}</strong>
+                        <span translate>BA.OWNER</span>
+                    </div>
+
+                    <div class="col-md-2">
+                        <strong>
+                            {{cluster.cluster.rate ? ((cluster.cluster.rate | number: '1.2-2')+' %') : 'No rate'}}&nbsp;{{('BA.'+cluster.cluster.rateType)
+                            | translate}}&nbsp;{{cluster.cluster.lastestRateDate | MysqlDateToDate | date:'dd/MM/y'}}
+                        </strong>
+                        <span translate>BA.SUGGESTIONS.RATE</span>
+                    </div>
+
+                    <div class="col-md-1 icon-control text-center">
+                        <icon [ref]="cluster.open ? 'icon-minus-collapse': 'icon-plus-expand'"
+                              (click)="cluster.open = !cluster.open"></icon>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngFor="let link of cluster.clusterLinks"
+                 class="row links"
+                 [ngClass]="{ 'to-be-created': !link.idClusterLink }">
+                <div class="col-md-1">
+                    <strong>&nbsp;{{link.nitg?.code}}</strong>
+                    <span translate>BA.SUGGESTIONS.NITG</span>
+                </div>
+                <div class="col-md-1">
+                    <strong>{{link.project?.code}}</strong>
+                    <span translate>BA.SUGGESTIONS.PROJECT</span>
+                </div>
+                <div class="col-md-1">
+                    <strong>&nbsp;{{link.factory?.code}}</strong>
+                    <span translate>BA.SUGGESTIONS.PLANT</span>
+                </div>
+                <div class="col-md-2">
+                    <strong>&nbsp;{{link.manufacturingStartDate | MysqlDateToDate | date:'dd/MM/y'}}{{link.manufacturingEndDate ?
+                        ' - ' + (link.manufacturingEndDate | MysqlDateToDate | date:'dd/MM/y') : ''}}</strong>
+                    <span translate>BA.SUGGESTIONS.PRODUCTION_START_END</span>
+                </div>
+                <div class="col-md-5">
+                    <div class="warranties">
+                        <div class="w-container"
+                             [tooltip]="link.nbKmLimit ? link.nbKmLimit+' km' : ''">
+                            <svg [class.highlight]="link.nbKmLimit">
+                                <use xlink:href="#icon-calendar-warranty" />
+                            </svg>
+                        </div>
+                        <div class="w-container"
+                             [tooltip]="link.nbKmWithoutLimit ? (link.nbKmWithoutLimit+' '+('COMMON.MONTH' | translate)) : '' +
+            link.nbKmWithLimit ? (link.nbKmWithLimit+' '+('COMMON.MONTH' | translate)) : ''">
+                            <svg [class.highlight]="link.nbKmWithoutLimit || link.nbKmWithLimit">
+                                <use xlink:href="#icon-highway" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span translate>BA.SUGGESTIONS.WARRANTY</span>
+                </div>
+                <div class="col-md-2 text-right">
+                    <strong *ngIf="!link.idClusterLink"
+                            translate>
+                        BA.SUGGESTIONS.TO_BE_CREATED
+                    </strong>
+                </div>
+            </div>
+        </accordion-group>
+    </accordion>
+</section>

@@ -1,0 +1,142 @@
+h1.main-section-title {
+    margin-bottom: 30px;
+}
+
+// BUTTONS
+.btn-rrf {
+    width: 76px;
+    height: 32px;
+    padding: 0;
+    background-color: #cccccc !important;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5) !important;
+    font-family: Read;
+    font-size: 12px;
+    text-align: center;
+    color: #0e0d0d;
+    border-radius: 0px;
+    border: none;
+}
+
+.btn-rrf-primary {
+    background-color: #ffcc33 !important;
+    color: #0e0d0d !important;
+}
+
+.btn-rrf:hover,
+.btn-rrf-primary:hover {
+    background-color: #ffde00 !important;
+}
+
+/** 
+######## INPUT #######
+**/
+
+input.rrf-input-text,
+input.rrf-input-text:focus,
+input.rrf-input-text:disabled {
+    width: 200px;
+    height: 40px;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+input.rrf-input-text {
+    background-color: #ffffff !important;
+    border: solid 1px #e1e1e1 !important;
+}
+
+input.rrf-input-text:focus {
+    background-color: #ffffff !important;
+    border: solid 1px #ffcc33 !important;
+}
+
+input.rrf-input-text:disabled {
+    background-color: #e1e1e1 !important;
+    border: solid 1px #e1e1e1 !important;
+    font-family: Read;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+// SELECT
+$input-border: #e1e1e1;
+$border-radius-base: 4;
+
+.ui-select {
+    position: relative;
+    display: inline-block; // overflow: hidden;
+    margin: 0 0 2px 1.2%;
+    width: 200px;
+    height: 40px;
+    border: 1px solid $input-border;
+    border-radius: $border-radius-base;
+
+    > select {
+        z-index: 99;
+        display: block;
+        position: relative;
+        padding: 10px 15px 10px 10px;
+        min-width: 200px;
+        width: 120%;
+        border: none;
+        outline: none;
+        background: transparent;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: bold;
+        text-indent: 0.01px;
+        text-overflow: '';
+        cursor: pointer;
+        -webkit-appearance: none; // hide select arrow on webkit
+        -moz-appearance: none;
+    } // hide select arrow on IE 10+
+    select::-ms-expand {
+        display: none;
+    }
+
+    &:after {
+        z-index: 0;
+        content: "";
+        position: absolute;
+        right: 8%;
+        top: 50%;
+        color: $input-border;
+        width: 0;
+        margin-top: -3px;
+        height: 0;
+        border-top: 6px solid;
+        border-right: 6px solid transparent;
+        border-left: 6px solid transparent;
+        pointer-events: none;
+    }
+}
+
+// Hide select arrow in Firefox 30+, thanks http://jsbin.com/yaruh
+
+/* Show only the native arrow */
+
+@-moz-document url-prefix() {
+    .ui-select {
+        overflow: hidden;
+    }
+
+    .ui-select select {
+        width: 120%;
+        width: -moz-calc(100% + 3em);
+        width: calc(100% + em);
+    }
+}
+
+/* Firefox focus has odd artifacts around the text, this kills that. See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-focusring */
+
+.ui-select select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+.ui-select select option {
+    margin: 40px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}

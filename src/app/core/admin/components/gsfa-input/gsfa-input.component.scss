@@ -1,0 +1,44 @@
+@import '../../../../../styles/utils/variables.scss';
+.wrapper {
+    width: 20px;
+    .add-button {
+        color: black;
+        background: $color-theme;
+        border-radius: 0;
+        cursor: pointer;
+        &.disabled {
+            background: #cccccc;
+            cursor: default;
+        }
+    }
+    .container {
+        margin: 0;
+        text-align: left;
+        box-sizing: border-box;
+        width: 0;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+        &.input-group {
+            padding-left: 0
+        }
+        &.open {
+            width: 340px;
+            opacity: 1; 
+        }
+        .form-control {
+            border-right: none;
+            border-radius: 0;
+            &:focus {
+                border: 1px solid #cccccc;
+                border-right: none;
+                box-shadow: none;
+            }
+        }
+        .cancel-button {
+            background: white;
+            border-left: none;
+            border-radius: 0;
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,78 @@
+@import "../../../../../styles/utils/variables.scss";
+
+table,
+th,
+td {
+    font-family: Read;
+}
+
+table .center {
+    text-align: center;
+}
+
+thead {
+    border: 1px solid #e1e1e1;
+}
+
+th {
+    color: black;
+    background-color: #e1e1e1;
+    height: 40px;
+    width: 130px;
+}
+
+tr {
+    height: 60px;
+    border: 1px solid #cccccc;
+    color: black;
+}
+
+th:first-of-type,
+td:first-of-type {
+    padding-left: 40px;
+}
+
+tr:nth-child(even) {
+    background-color: #f6f6f6;
+}
+
+i {
+    cursor: pointer;
+    color: $color-theme;
+    margin-right: 15px;
+
+    &.fa-times {
+        color: grey;
+    }
+
+    &.fa-check {
+        color: green;
+    }
+}
+
+span.ui-select {
+    width: 70px;
+    margin: 0;
+    background-color: white;
+}
+
+.ui-select > select {
+    width: 70px;
+    min-width: 70px;
+}
+
+.rrf-input-text, .rrf-input-text:focus {
+    padding: 10px;
+    width: 80px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    align-items: stretch;
+}
+
+.name-country {
+    flex: 1;
+}

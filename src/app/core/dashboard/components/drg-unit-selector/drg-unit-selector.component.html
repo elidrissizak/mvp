@@ -1,0 +1,41 @@
+<div class="selectors">
+    <button class="controls-button"
+            (ngModelChange)="switchTo($event)"
+            [ngModel]="unit"
+            btnRadio="amount"
+            translate>
+        <svg class="icon-rrf">
+            <use xlink:href="#bt-montant-opposable"
+                 class="icon-off" />
+            <use xlink:href="#bt-montant-opposable-on"
+                 class="icon-on" />
+        </svg>
+        <span translate>DB.OPPOSABLE_AMOUNT</span>
+    </button>
+
+    <button class="controls-button"
+            (ngModelChange)="switchTo($event)"
+            [ngModel]="unit"
+            btnRadio="count">
+        <svg class="icon-rrf">
+            <use xlink:href="#bt-quantite-drg"
+                 class="icon-off" />
+            <use xlink:href="#bt-quantite-drg-on"
+                 class="icon-on" />
+        </svg>
+        <span translate>DB.DRG_NUMBER</span>
+    </button>
+
+    <button class="controls-button"
+            (ngModelChange)="switchTo($event)"
+            [ngModel]="unit"
+            btnRadio="percent">
+        <svg class="icon-rrf">
+            <use xlink:href="#btn-pourcentage"
+                 class="icon-off" />
+            <use xlink:href="#btn-pourcentage-on"
+                 class="icon-on" />
+        </svg>
+        <span translate>DB.PERCENT_OPPOSA_AMOUNT</span>
+    </button>
+</div>

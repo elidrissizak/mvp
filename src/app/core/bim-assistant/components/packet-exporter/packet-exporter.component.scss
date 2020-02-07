@@ -1,0 +1,50 @@
+.modal {
+    background: rgba(0, 0, 0, .5);
+    color: #848484;
+    text-align: center;
+    .icon-rrf {
+        display: block;
+        height: 32px;
+        left: 32px;
+        margin: auto;
+        position: relative;
+        transform: scale(5);
+        width: 32px;
+    }
+    .modal-content {
+        border-radius: 0;
+        padding: 30px;
+    }
+    .modal-header {
+        padding: 100px 85px 15px;
+        border-bottom: 0;
+    }
+    .modal-body {
+        padding: 0 15px;
+        p {
+            padding: 0 60px;
+        }
+    }
+    .modal-sm {
+        width: 600px;
+    }
+    .modal-title {
+        color: #616161;
+        font-size: 1.6em;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+    .btn-box {
+        border-radius: 0;
+        color: #333;
+        width: 100%;
+    }
+    .btn-yes {
+        background-color: #f5b029;
+        border: 1px solid #f5b029;
+    }
+    .btn-no {
+        background-color: #fafafa;
+        border: 1px solid #c7c7c7;
+    }
+}

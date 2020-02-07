@@ -1,0 +1,30 @@
+.bim-tab {
+    padding: 1em;
+    .controls {
+        position: static;
+        .selectors {
+            border-top: 1px solid #eaeaea;
+            padding-top: 20px;
+        }
+    }
+}
+
+.nav-tabs {
+    border-bottom: 0!important;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+    border: 0 !important;
+    border-radius: 0 !important;
+    text-align: left !important;
+}
+
+.circle-reference {
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 4px;
+    width: .7em;
+    height: .7em;
+}

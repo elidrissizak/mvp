@@ -1,0 +1,35 @@
+<nav id="sidebar"
+     [class.closed]="closed">
+    <ul id="menu">
+        <li class="menu-header"
+            (click)="close()">
+            <div class="icon">
+                <icon ref="iconX"></icon>
+            </div>
+            <div class="menu-label"
+                 translate>MENU</div>
+        </li>
+        <li class="menu-item"
+            *ngFor="let section of sections"
+            [class.active]="isActive(section.id)"
+            (click)="!isActive(section.id) && goTo(section)">
+            <div class="icon">
+                <icon [ref]="section.icon"></icon>
+            </div>
+            <div class="menu-label"
+                 translate>
+                {{section.label}}
+            </div>
+        </li>
+        <li class="menu-item">
+            <div class="icon">
+                <icon ref="icon-oldrrf"></icon>
+            </div>
+            <div class="menu-label">
+                <a href="http://rrf.intra.renault.fr/rrf/index.jsp"
+                   target="_blank"
+                   translate>COMMON.OLD_RRF</a>
+            </div>
+        </li>
+    </ul>
+</nav>

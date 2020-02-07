@@ -1,0 +1,14 @@
+:host /deep/ {
+    .overlay {
+        opacity: 0.2;
+    }
+    .tm-cell {
+        cursor: pointer;
+    }
+    .treemap-tooltip {
+        width: 150px;
+        height: 25px;
+        background: red;
+        position: absolute;
+    }
+}

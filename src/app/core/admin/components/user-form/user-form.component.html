@@ -1,0 +1,153 @@
+
+    <div id="form">
+        <div class="row">
+            <div class="col-md-3" id="back">
+                <a (click)="cancel()">                    
+                    <span class="iconn"><i class="fa fa-chevron-circle-left"></i></span>
+                    <span class="back-label" translate>COMMON.BACK</span>
+                </a>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="section-title italic">{{title | translate}}</h4>
+                <a *ngIf="currentFormState === 'read'" (click)="goToUpdate()"><span translate>COMMON.EDIT</span><i class="glyphicon glyphicon-pencil"></i></a>                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="ipn">IPN</label>
+                
+                <p *ngIf="formBehavior['read'].active; else showInputIpn">
+                    {{user?.ipn}}
+                    <span class="orga">FR01</span>
+                </p>
+                <ng-template #showInputIpn>
+                    <div class="input-group">
+                        <input type="text" 
+                           class="form-control rrf-input-text input-ipn"
+                           id="ipn" 
+                           maxlength="7"
+                           [disabled]="formBehavior['update'].active"
+                           [(ngModel)]="user.ipn"
+                           [value]="user?.ipn">
+                        <span 
+                            class="input-group-addon" 
+                            [class.input-group-addon-create]="formBehavior['create'].active">
+                            FR01
+                        </span>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div class="col-sm-3">
+                <label for="lastname" translate>USER.LAST_NAME</label>
+                <p *ngIf="formBehavior['read'].active; else showInputLastName">{{user?.lastName}}</p>
+                <ng-template #showInputLastName>
+                    <input type="text" 
+                           class="form-control rrf-input-text" 
+                           id="lastname"
+                           [disabled]="formBehavior['update'].active"
+                           [(ngModel)]="user.lastName"
+                           [value]="user?.lastName">
+                </ng-template>
+            </div>
+
+            <div class="col-sm-3">
+                <label for="firstname" translate>USER.FIRST_NAME</label>
+                <p *ngIf="formBehavior['read'].active; else showInputFirstName">{{user?.firstName}}</p>
+                <ng-template #showInputFirstName>
+                    <input type="text" 
+                           class="form-control rrf-input-text" 
+                           id="firstname"
+                           [disabled]="formBehavior['update'].active"
+                           [(ngModel)]="user.firstName"
+                           [value]="user?.firstName">
+                </ng-template>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h4 class="section-title" translate>USER.PERMISSIONS</h4>
+            </div>
+        </div>
+        
+        <div class="row" *ngIf="formBehavior['create'].active">
+            <input-toggle 
+                labelOn="{{'USER.PERMISSIONS_NEW' | translate}}" 
+                labelOff="{{'USER.PERMISSIONS_INHERIT' | translate}}" 
+                [(value)]="permissionsInherited">
+            </input-toggle>
+        </div>
+
+        <div class="row">
+            <div *ngIf="formBehavior['create'].active && permissionsInherited" class="col-sm-3">
+                <label for="historyIpn" translate>USER.OLD_IPN</label>
+                <input type="text" 
+                    class="form-control rrf-input-text rrf-input-text" 
+                    id="historyIpn"
+                    [value]="user?.historyIpn">
+            </div>
+            <div class="col-sm-3">
+                <label translate>USER.PROFILE</label>
+                <p *ngIf="formBehavior['read'].active; else showInputProfile">{{user?.roles[0]}}</p>
+                <ng-template #showInputProfile>
+                    <span class="ui-select">
+                        <select [(ngModel)]="user?.roles[0]">
+                            <option *ngFor="let p of profiles; let i = index" [value]="p.id">
+                                {{ p.label | translate }}
+                            </option>
+                        </select>
+                    </span>
+                </ng-template>
+            </div>
+        </div>
+
+        <div class="row" 
+            *ngIf="formBehavior['read'].active || 
+            formBehavior['update'].active || 
+            (formBehavior['create'].active && permissionsInherited)">
+            <div class="col-md-3">
+                <h4 class="section-title" translate>USER.GSFA</h4>
+            </div>
+        </div>
+
+        <div class="row" 
+            *ngIf="formBehavior['read'].active || 
+            formBehavior['update'].active || 
+            (formBehavior['create'].active && permissionsInherited)">
+            <div class="col-sm-12">
+                <gsfas [(gsfas)]="user.gsfas" [readonly]="currentFormState === 'read'"></gsfas>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1">
+                <button class="btn btn-rrf" (click)="cancel()" translate>COMMON.CANCEL</button>
+            </div>
+            <div class="col-sm-1">
+                <button
+                    *ngIf="formBehavior['create'].active || formBehavior['update'].active"
+                    class="btn btn-rrf btn-rrf-primary" 
+                    type="submit" 
+                    (click)="save()"
+                    translate>
+                        COMMON.SAVE
+                </button>
+            </div>
+            <div class="col-sm-9"></div>
+            <div class="col-sm-1">
+                <button-modal 
+                    *ngIf="currentFormState === 'update'"
+                    [component]="deleteButtonModal.component" 
+                    [text]="deleteButtonModal.text"
+                    [params]="deleteButtonModal.params"
+                    [successCallback]="deleteButtonModal.successCallback"
+                    [errorCallback]="deleteButtonModal.errorCallback"
+                ></button-modal>
+            </div>
+        </div>
+    </div>

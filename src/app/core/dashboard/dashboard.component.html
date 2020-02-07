@@ -1,0 +1,32 @@
+<h1 class="main-section-title">
+
+    Dashboard</h1>
+
+<div class="dashboard">
+    <div class="row">
+
+        <tabset class="col-md-6 text-left" id="summary">
+            <tab heading="{{'DB.SYNTHESIS_PAN' | translate}}" customClass="zeclass">
+                <bim-status></bim-status>
+            </tab>
+        </tabset>
+
+        <tabset class="col-md-6" id="repartition">
+            <tab heading="{{'DB.BIM_PANEL_TAB' | translate}}">
+
+                <bim-tab></bim-tab>
+
+            </tab>
+            <tab heading="{{'DB.WITH_SUPPLIER_PANEL_TAB' | translate}}">
+
+                <bim-by-deductions [with-supplier]="true"></bim-by-deductions>
+
+            </tab>
+            <tab heading="{{'DB.WITHOUT_SUPPLIER_PANEL_TAB' | translate}}">
+
+                <bim-by-deductions [with-supplier]="false"></bim-by-deductions>
+
+            </tab>
+        </tabset>
+    </div>
+</div>

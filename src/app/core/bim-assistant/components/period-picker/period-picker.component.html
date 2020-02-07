@@ -1,0 +1,73 @@
+
+    <div class="bim-calendar">
+
+        <div class="shower" (click)="showPicker()">
+            <svg class="icon-rrf"><use xlink:href="#icon-calendar" /></svg>
+            <span class="bim-type" translate>BA.BIM_MONTH</span>
+            <button class="btn-toggle" [class.btn-toggle-close]="pickerVisible"></button>   
+            <div class="content-time" *ngIf="period.startDate !== undefined || period.endDate !== undefined">
+                <time role="button">{{period.startDate | date:'MM/y'}}</time>
+                &nbsp;-&nbsp;
+                <time role="button">{{period.endDate | date:'MM/y'}}</time>
+            </div>
+        </div>
+
+        <div class="bim-calendar-hover" *ngIf="pickerVisible">
+
+            <button class="bim-close" (click)="reset()"></button>
+
+            <header class="bim-date-selected">              
+                <time [class.current]="step === 'selectEndDate'">
+                    <span>
+                        {{period.startDate === undefined ? 
+                            ('BA.DATE_START' | translate) 
+                            : (period.startDate | date:'MM / y')}}
+                    </span>
+                </time>
+                <time [class.current]="step === 'submitOrCancel'">
+                    <span>
+                        {{period.endDate === undefined ? 
+                            ('BA.DATE_END' | translate) 
+                            : (period.endDate | date:'MM / y')}}
+                    </span>
+                </time>
+            </header>
+
+            <month-year-picker #startDatePicker
+                class="start-date-picker"
+                [style.display]="step === 'selectStartDate' ? 'block' : 'none'" 
+                (on-selected)="onStartSelected($event)">
+            </month-year-picker>
+
+            <month-year-picker #endDatePicker 
+                class="end-date-picker"
+                [style.display]="step === 'selectEndDate' || step === 'submitOrCancel' ? 'block' : 'none'" 
+                (on-selected)="onEndSelected($event)">
+            </month-year-picker>
+
+            <footer>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label><input type="radio" 
+                            [checked]="isNYears(5)" 
+                            name="shortcut" (click)="lastNYears(5)">
+                            <span translate>BA.DATE_5_LAST_YEARS_FILTER</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-6">
+                        <label><input type="radio" 
+                        [checked]="isNYears(1)"  name="shortcut" (click)="lastNYears(1)">
+                            <span translate>BA.DATE_12_LAST_MONTH_FILTER</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="btn-box" 
+                    [class.disabled]="step !== 'submitOrCancel'" 
+                    [disabled]="step !== 'submitOrCancel'" 
+                    (click)="submit()" translate>
+                    COMMON.APPLY_BUTTON
+                </button>
+            </footer>
+
+        </div>
+    </div>

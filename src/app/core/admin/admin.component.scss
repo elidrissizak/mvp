@@ -1,0 +1,38 @@
+@import "../../../styles/utils/variables.scss";
+
+:host {
+    background: white;
+}
+
+h1 {
+    font-family: RenaultLife;
+    font-size: 36px;
+    letter-spacing: 1.3px;
+    text-align: left;
+    color: #000000;
+}
+
+tabset /deep/ {
+    .nav-item {
+        .nav-link {
+            border-radius: 0;
+            font-weight: bold;
+            color: black;
+            background: #f6f6f6;
+
+            &.active {
+                background: white;
+                border-top: 4px solid $color-theme !important;
+            }
+        }
+    }
+
+    .tab-content {
+        height: auto;
+        border: 1px solid #ddd;
+        border-top: none;
+        padding-right: 25px;
+        padding-left: 25px;
+        box-shadow: 2px 1px 3px 0 rgba(0, 0, 0, 0.2), 2px 2px 2px 0 rgba(0, 0, 0, 0.12), 2px 0 2px 0 rgba(0, 0, 0, 0.14);
+    }
+}

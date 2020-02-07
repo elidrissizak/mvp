@@ -1,0 +1,60 @@
+<section class="box-common-layout">
+
+  <!-- HEADER -->
+  <header>
+    <!-- RIGHT SIDE ACTION MENU -->
+    <h3 class="mt-0 pull-left"
+        translate>BA.CLUSTER_SUGGESTION_TEXT</h3>
+  </header>
+  <hr>
+  <!-- <div accordion-heading
+       class="accordion-heading">
+      <span *ngFor="let h of getHistory(); let i = index">
+          {{ i > 0 ? '&nbsp;|&nbsp;' : ''}}
+          <strong>
+              <kbd>{{getHistoryFilterLabel(h)}}</kbd>
+          </strong> : {{getHistoryFilterValue(i)}}
+      </span>
+  </div>
+  <hr> -->
+  <div class="box-group-layout"
+       *ngIf="canSuggest === false">
+    <!-- NO RESULTS -->
+    <div class="empty-result">
+      <p translate> BA.SUGGESTIONS.NOT_FOUND </p>
+    </div>
+    <!-- NO RESULTS end -->
+  </div>
+
+  <!-- GLOBAL -->
+
+  <div *ngIf="canSuggest">
+
+    <div *ngIf="enableButton == true">
+      {{enableButton}}
+      <div class="row treat">
+        <div class="col-md-12 text-right">
+          <button-modal #buttonModal
+                        class="btn btn-rrf btn-rrf-primary btn-box"
+                        [component]="modal.component"
+                        [text]="'BA.CLUSTER_TREAT' | translate"
+                        [params]="modal.params"
+                        [cluster]="selectedCluster"
+                        [successCallback]="modal.successCallback"
+                        [errorCallback]="modal.errorCallback"
+                        translate></button-modal>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <suggestions-global [suggestions]="suggestions">
+        </suggestions-global>
+      </div>
+    </div>
+  </div>
+
+</section>

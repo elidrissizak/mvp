@@ -1,0 +1,18 @@
+
+    <div class="input-group wrapper" [class.open]="opened">
+        <span class="input-group-addon add-button" [class.disabled]="opened" (click)="onAdd()">+</span>
+        <div class="container input-group" [class.open]="opened">
+            <input type="text"
+                class="input-text"
+                id="inputText"
+                #input
+                [class.open]="opened"
+                class="form-control"
+                [(ngModel)]="typedByUser"
+                [typeahead]="gsfasList"
+                [typeaheadOptionField]="getLabelProp()"
+                (typeaheadOnSelect)="onSelect($event)"
+                />
+            <span class="input-group-addon cancel-button" [class.open]="opened" (click)="onCancel()">X</span>
+        </div>
+    </div>

@@ -1,0 +1,16 @@
+.bim-status {
+    padding: 1em;
+    .controls {
+        position: static;
+        .selectors {
+            padding-top: 0;
+        }
+    }
+    .circle-reference {
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 4px;
+        width: .7em;
+        height: .7em;
+    }
+}

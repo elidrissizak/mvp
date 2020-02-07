@@ -1,0 +1,13 @@
+
+    <h1 class="main-section-title">Administration</h1>
+    
+    <div class="row">
+        <tabset>
+            <tab heading="{{'ADMIN.USERS_TAB' | translate}}" (select)="enableTab(tabs.users)">
+                <users-tab *ngIf="tabs.users.enable"></users-tab>
+            </tab>
+            <tab heading="{{'ADMIN.ORGANIZATIONS_TAB' | translate}}" (select)="enableTab(tabs['organizations'])">
+                <organizations-tab *ngIf="tabs.organizations.enable"></organizations-tab>
+            </tab>
+        </tabset>
+    

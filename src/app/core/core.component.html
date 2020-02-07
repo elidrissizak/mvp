@@ -1,0 +1,25 @@
+<spinner [tasks]="tasks">
+
+</spinner>
+
+<core-error [message]="message"></core-error>
+
+<core-icons></core-icons>
+
+<core-header (openSideMenu)="sideMenuClosed = false"></core-header>
+
+<main id="ui-wrapper" class="sub-body">
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <core-side [closed]="sideMenuClosed" (close)="sideMenuClosed = true">
+            </core-side>
+
+            <section class="app-container">
+                <router-outlet></router-outlet>
+            </section>
+
+        </div>
+    </div>
+</main>

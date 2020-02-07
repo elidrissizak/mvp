@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li>
+                
+                <a type="button" (click)="openSideMenu()">
+                    <span class="glyphicon glyphicon-nav" aria-hidden="true"></span>
+                </a>
+                  
+            </li>
+            <li>
+                <!-- <a id="leon" href="javascript:void(0)">
+                    <img src="/assets/images/icon-leon.png" />
+                </a> -->
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="fr" class="language" [class.active]="languageService.getLanguage() === 'fr'" class="language">
+                <a (click)="languageService.setLanguage('fr')">
+                        <img src="/assets/images/countries/france.png" style=" width:24px; height:24px;" />
+                       
+                </a>
+            </li>
+            <li id="en" class="language" [class.active]="languageService.getLanguage() === 'en'" class="language">
+                <a (click)="languageService.setLanguage('en')">
+                        <img src="/assets/images/countries/english.png" style=" width:24px; height:24px;" />
+                </a>
+            </li>
+            <li id="user-infos">
+                <div id="name">{{user?.firstName}} {{user?.lastName}}</div>
+                <div id="role">Administrateur</div>
+            </li>
+            <li id="user-pic">
+                <img src="/assets/images/person-placeholder.jpg" />
+            </li>
+            <li id="logo-renault">
+                <img src="/assets/images/logo-header.png" />
+                <span>{{apiVersion}}</span>
+            </li>
+        </ul>
+    </div>
+</nav>

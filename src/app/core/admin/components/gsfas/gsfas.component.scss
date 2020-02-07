@@ -1,0 +1,41 @@
+.gsfas {
+    margin-top: 20px;
+    button {
+        background: #006ba6;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: 171px;
+        height: 34px;
+        border-radius: 4px;
+        text-align: left;
+        color: white;
+        vertical-align: middle;
+        font-size: 0; // Disable white-spacing in inline-block
+        padding: 0;
+        .button-text {
+            display: inline-block;
+            vertical-align: top;
+            line-height: 34px;
+            width: 137px;
+            height: 34px;
+            font-family: Read;
+            font-size: 14px;
+            text-align: left;
+            overflow: hidden;
+            padding: 0;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 2px;
+        }
+        .button-icon {
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            line-height: 34px;
+            vertical-align: top;
+            color: white;
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+}

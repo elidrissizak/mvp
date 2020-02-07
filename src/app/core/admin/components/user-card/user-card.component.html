@@ -1,0 +1,17 @@
+
+    <div class="user-card" [style.border-color]="user.roles[0] ? roles[user.roles[0]].color : 'black'">
+        <div class="infos">
+            <div class="ipn">
+                {{user.ipn}}
+            </div>
+            <div class="name">
+                {{user.firstName}} {{user.lastName}}
+            </div>
+            <div class="gsfas">
+                {{user.gsfas.length}} <span translate>USER.NB_GSFAS</span>
+            </div>
+            <div class="role">
+                <span *ngFor="let role of user.roles">{{roles[role].label | translate}}&nbsp;</span>
+            </div>
+        </div>
+    </div>

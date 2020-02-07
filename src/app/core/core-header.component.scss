@@ -1,0 +1,90 @@
+.navbar {
+    background: #fdfdfd;
+    border: 0;
+    box-shadow: 0 2px 5px 0 rgba(145, 145, 145, 0.57);
+    z-index: 10000;
+    #burger {
+        icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            fill: #F5B029;
+        }
+    }
+    #leon {
+        cursor: default;
+        padding: 0;
+        margin: 0;
+        padding-top: 10px;
+        img {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+        }
+    }
+    .navbar-right {
+        margin-right: 0;
+        .language {
+            cursor: pointer;
+            icon {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        #en {
+            border-right: 2px solid;
+            border-color: #D2D5D6;
+        }
+        #user-infos {
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 10px;
+        }
+        #user-pic {
+            padding-left: 15px;
+            padding-top: 10px;
+            padding-right: 15px;
+            img {
+                width: 40px;
+                height: 40px;
+                background: #888888;
+                border-radius: 20px;
+                border: 4px solid;
+                border-color: #F5B029;
+            }
+        }
+        #logo-renault {
+            padding-left: 25px;
+            padding-right: 25px;
+            padding-top: 15px;
+        }
+    }
+}
+/* CSS used here will be applied after bootstrap.css */
+
+.glyphicon-nav {
+    width: 18px;
+    padding: 8px 0;
+    position: relative;
+    display: inline-block;
+  }
+  .glyphicon-nav:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    border-top: 2px solid #FFD700;
+    border-bottom: 2px solid #FFD700;
+    top: 0px;
+  }
+  .glyphicon-nav:after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 0px;
+    height: 2px;
+    width: 100%;
+    background: #FFD700;
+  }
+  

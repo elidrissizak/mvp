@@ -1,0 +1,30 @@
+<div class="modal fade" bsModal #exportConfirmationModal="bs-modal" [config]="{ backdrop: 'static' }" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="bim-close" (click)="exportConfirmationModal.hide()"></button>
+                <svg class="icon-rrf">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-download"></use>
+                </svg>
+                <h4 class="modal-title" translate>
+                    BA.EXPORT_CONFIRMATION
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>{{packetToExport?.rawDatum.label}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pt-30">
+                        <button class="btn-box btn-no" (click)="exportConfirmationModal.hide()" translate>COMMON.NO</button>
+                    </div>
+                    <div class="col-md-6 pt-30">
+                        <button class="btn-box btn-yes" (click)="export()" translate>COMMON.YES</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

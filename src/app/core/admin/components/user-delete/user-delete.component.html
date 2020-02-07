@@ -1,0 +1,12 @@
+<div id="delete-user-modal">
+    <h2 translate>ADMIN.DELETE_USER</h2>
+
+    <p>
+        <span translate>ADMIN.DELETE_USER_CONFIRMATION</span>
+        {{ userProfiles[bsModalRef.content?.params.user.roles[0]] }} {{ bsModalRef.content?.params.user.lastName }} {{ bsModalRef.content?.params.user.firstName}},
+        {{ bsModalRef.content?.params.user.ipn }} org FR01 ?
+    </p>
+
+    <button class="btn btn-rrf" (click)="cancel()" translate>COMMON.CANCEL</button>
+    <button class="btn btn-rrf btn-rrf-primary" (click)="confirm()" translate>COMMON.CONFIRM</button>
+</div>

@@ -1,0 +1,30 @@
+<div class="bim-status row">
+
+    <div class="controls col-md-4 col-lg-3">
+        <ul class="legends list-unstyled">
+            <li *ngFor="let statusName of statusNamesList">
+                <i class="circle-reference"
+                   [style.background-color]="colorService.get(statusName)"></i> {{statusName}}
+            </li>
+        </ul>
+    </div>
+    <div class="chart col-md-8 col-lg-9">
+        <div class="ie11-svg-wrapper">
+            <pie [data]="currentData"
+                 width="1200"
+                 height="1000"
+                 radius="300"
+                 inner-radius="0.75"
+                 outer-radius="1"></pie>
+        </div>
+    </div>
+
+    <footer class="footer col-sm-12">
+        <div class="selectors">
+            <drg-unit-selector [(ngModel)]="unit"
+                               (change)="onUnitChange($event)">
+            </drg-unit-selector>
+        </div>
+    </footer>
+
+</div>

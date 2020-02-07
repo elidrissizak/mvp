@@ -1,0 +1,80 @@
+@import '../../../../../styles/utils/variables.scss';
+div.input-toggle {
+    width: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label-state {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    height: 14px;
+    font-family: Read;
+    font-size: 14px;
+    font-weight: normal;
+    color: #cccccc;
+}
+
+label.ui-switch {
+    margin: 0;
+}
+
+.stateSelected {
+    color: #000000;
+}
+
+$ui_switch: 25px;
+$ui_switch_padding: 20px;
+$ui_switch_sm: 20px;
+$ui_switch_sm_padding: 16px;
+$ui_switch_lg: 30px;
+$ui_switch_lg_padding: 25px;
+@mixin ui-switch-size($switch_padding) {
+    &.ui-switch-success :checked+i {
+        background-color: $brand-success;
+    }
+    &.ui-switch-warning :checked+i {
+        background-color: $brand-warning;
+    }
+    &.ui-switch-danger :checked+i {
+        background-color: $brand-danger;
+    }
+}
+
+// Pure CSS, thanks https://github.com/abpetkov/switchery/issues/13
+.ui-switch {
+    input {
+        display: none;
+    }
+    i {
+        display: inline-block;
+        cursor: pointer;
+        padding-right: $ui_switch_padding;
+        transition: all ease 0.2s;
+        border-radius: $ui_switch;
+        width: 50px;
+        height: 31px;
+        &:before {
+            display: block;
+            content: '';
+            width: 29px;
+            height: 29px;
+            border-radius: $ui_switch;
+            background: white;
+        }
+    }
+     :not(:checked)+i {
+        padding-left: 1px;
+        padding-right: $ui_switch_padding;
+        padding-top: 1px;
+        background-color: $brand-primary;
+    }
+     :checked+i {
+        padding-right: 0;
+        padding-left: $ui_switch_padding;
+        padding-top: 1px;
+        background-color: $brand-primary;
+    }
+}

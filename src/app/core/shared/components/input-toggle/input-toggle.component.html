@@ -1,0 +1,8 @@
+<div class="col-md-2 input-toggle">
+    <label class="label-state" [class.stateSelected]="!value">{{labelOn}}</label>
+    <label class="ui-switch">
+        <input [(ngModel)]="value" type="checkbox" (change)="changeState()" [checked]="value">
+        <i></i>
+    </label>
+    <label class="label-state" [class.stateSelected]="value">{{labelOff}}</label>
+</div>

@@ -1,0 +1,36 @@
+<div #pieElmt>
+    <svg preserveAspectRatio="xMinYMin meet"
+         [attr.viewBox]="'0 0 ' + width + ' ' + height">
+        <g [attr.transform]="'translate(' + width/2 + ', ' + height/2 + ')'">
+
+            <g class="slices"
+               *ngFor="let path of paths"
+               (click)="onSliceClick($event, path.datum)">
+                <path [attr.d]="path.svgCode"
+                      style="stroke-width: 2px"
+                      [style.fill]="path.fill">
+                </path>
+            </g>
+
+            <g class="labels">
+                <text *ngFor="let text of texts"
+                      style="font-family: Arial;stroke: none"
+                      [style.fontSize]="fontSize+'px'"
+                      [attr.fill]="text.fill"
+                      [attr.transform]="'translate(' + [text.pos.x, text.pos.y] + ')'"
+                      [style.text-anchor]="text.side === 1 ? 'end' : 'start'">
+                    {{text.text}}
+                </text>
+            </g>
+
+            <g class="lines">
+                <polyline *ngFor="let line of lines"
+                          [attr.points]="line.points"
+                          fill="none"
+                          stroke-width="4"
+                          [attr.stroke]="line.stroke">
+                </polyline>
+            </g>
+        </g>
+    </svg>
+</div>

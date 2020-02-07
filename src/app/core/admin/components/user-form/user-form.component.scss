@@ -1,0 +1,78 @@
+#form {
+    padding: 50px;
+}
+
+a {
+    cursor: pointer;
+}
+
+h4 {
+    display: inline-block;
+    margin-right: 2em;
+}
+
+#back {
+    a:hover {
+        text-decoration: none;
+    }
+    i {
+        color: #000000;
+    }
+    span {
+        font-size: 14px;
+        font-family: Read;
+        font-weight: 500;
+        color: #000000;
+    }
+}
+
+.section-title {
+    font-family: Read;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+    color: #000000;
+    padding-top: 15px;
+}
+
+label {
+    display: block;
+    font-family: Read;
+    font-weight: normal;
+    text-align: left;
+    color: #000000;
+    margin: 10px 0 5px 0;
+}
+
+p {
+    font-family: Read;
+}
+
+.input-ipn {
+    border-right: none !important;
+}
+
+.input-group-addon {
+    background-color: #e1e1e1 !important;
+    border: solid 1px #e1e1e1 !important;
+    border-left: none !important;
+    border-radius: 0 !important;
+    font-family: Read;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.input-group-addon-create {
+    background-color: white !important;
+}
+
+.orga {
+    margin-left: 40px;
+    font-family: Read;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.row:last-of-type {
+    margin-top: 20px;
+}

@@ -1,0 +1,76 @@
+@import "../../../../../styles/global/mixin.scss";
+
+.bim-datepicker {
+    input[type="radio"] {
+        @include prefix((transform: scale(1.5)), webkit moz ms);
+
+        padding: 5px;
+    }
+
+    .bim-month {
+        .month {
+            border-bottom: 1px solid #eaeaea;
+            border-right: 1px solid #eaeaea;
+            color: #000;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 100;
+            margin-right: -3px;
+            padding: 10px;
+            text-align: center;
+            width: calc(100%/3);
+
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                width: calc(100%/3.001);
+            }
+
+            &:hover,
+            &.active {
+                background-color: #F0F0F0;
+                font-weight: 400;
+            }
+
+            &.disabled {
+                cursor: default; //background-color: #c1c1c1;
+                background-color: white;
+            }
+
+            &.selected {
+                background-color: #f0f0f0;
+            }
+        }
+    }
+
+    .bim-year {
+        background-color: #5b6473;
+        color: #fff;
+        border-radius: 5px 5px 0 0;
+        display: table;
+        position: absolute;
+        left: 3px;
+        width: 97%;
+        z-index: 9990;
+
+        * {
+            box-sizing: content-box;
+        }
+
+        time {
+            border: 0;
+            color: #fff;
+            display: table-cell;
+            font-size: .8em;
+            font-weight: 100;
+            padding: 7px 0;
+            text-align: center;
+            width: calc(100%/5);
+
+            &:hover,
+            &.active {
+                background-color: #f5af2b;
+                border-radius: 5px 5px 0 0;
+                text-shadow: 1px 1px 1px #5b6473;
+            }
+        }
+    }
+}

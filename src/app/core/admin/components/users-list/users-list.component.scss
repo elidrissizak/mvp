@@ -1,0 +1,26 @@
+@import '../../../../../styles/utils/variables.scss';
+:host {
+    padding: 15px;
+}
+
+.users {
+    // height: 530px;
+    // overflow: auto;
+    font-size: 0;
+    .card {
+        display: inline-block;
+        vertical-align: top;
+        margin: 15px;
+    }
+    .add-user {
+        width: 217px;
+        height: 94px;
+        border: 1px solid $color-theme;
+        text-align: center;
+        padding-top: 25px;
+        icon {
+            width: 45px;
+            height: 45px;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+.app-container {
+    width: 1242px;
+    margin: auto;
+}
+
+.container-fluid {
+    min-width: 1362px;
+}
+
+.sub-body {
+    padding-top: 90px;
+}
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.main {
+    background: #f6f6f6;
+    padding: 20px;
+    .page-header {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}

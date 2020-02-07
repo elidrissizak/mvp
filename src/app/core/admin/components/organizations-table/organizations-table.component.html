@@ -1,0 +1,62 @@
+<table>
+    <thead>
+        <th translate>ORGANIZATION.LABEL</th>
+        <th translate>ORGANIZATION.COUNTRY</th>
+        <th translate>ORGANIZATION.SUPPLIERS</th>
+        <th translate>ORGANIZATION.DEFAULT_CURRENCY</th>
+        <th translate>ORGANIZATION.DISTRIBUTION_FEES</th>
+        <th class="center" translate>COMMON.EDIT</th>
+        <th class="center" translate>COMMON.MANAGE_EXCEPTIONS</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of organizationsList">
+            <td>{{o.id}}</td>
+            <td class="flex-container">
+                <span class="name-country">{{o.country | translateCountry}}</span>
+                <span>
+                    <img [src]="o.country | flagCountry" alt="Country Flag">
+                </span>
+
+            </td>
+            <td>{{o.suppliersCount}}</td>
+
+            <td>
+                <div *ngIf="editedOrganization !== o">
+                    {{('COMMON.'+(currencies[o.currencyCode] | i18nLabel)) | translate}}
+                </div>
+                <div *ngIf="editedOrganization === o">
+                    <span class="ui-select">
+                        <select [(ngModel)]="enteredCurrency">
+                            <option *ngFor="let currencyId of (currencies | keys)" [value]="currencies[currencyId].id">
+                                {{('COMMON.'+(currencies[currencyId] | i18nLabel)) | translate}}
+                            </option>
+                        </select>
+                    </span>
+                </div>
+            </td>
+
+            <td>
+                <div *ngIf="editedOrganization !== o">
+                    {{o.distributionFees}}%
+                </div>
+                <div *ngIf="editedOrganization === o">
+                    <input type="number" min="0" max="100" class="rrf-input-text" [(ngModel)]="enteredFees" />
+                </div>
+            </td>
+
+            <td class="center">
+                <div *ngIf="editedOrganization !== o">
+                    <i class="fa fa-pencil" (click)="editedOrganization = o; enteredFees = o.distributionFees; enteredCurrency = o.currencyCode"></i>
+                </div>
+                <div *ngIf="editedOrganization === o">
+                    <i class="fa fa-times" (click)="cancelEdit(o)"></i>
+                    <i class="fa fa-check" (click)="submitEdit(o)"></i>
+                </div>
+            </td>
+
+            <td class="center">
+                <i class="fa fa-refresh"></i>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+<div class="bim-filter">
+    <div class="header"
+         (click)="showDeduction()">
+        <div class="icon">
+            <img src="/assets/images/pictogramme/deduction.png" style="width:80%; height:80%;"/>
+        </div>
+        <span class="cd-title"
+              translate>BA.DEDUCTION_CODE</span>
+        <mark>{{nbSelected}}</mark>
+        <button class="btn-toggle"
+                [class.btn-toggle-close]="deductionVisible"></button>
+    </div>
+    <fieldset *ngIf="deductionVisible">
+        <ul class="list-unstyled">
+            <li>
+                <label>
+                    <input type="checkbox"
+                           [checked]="isAll()"
+                           (change)="selectAll($event)" />
+                    <span translate>COMMON.ALL_CHECK_BOX</span>
+                </label>
+            </li>
+            <li *ngFor="let deduction of deductions">
+                <label [style.border-left-color]="colorService.get(deduction.id)">
+                    <input type="checkbox"
+                           [checked]="isSelected(deduction)"
+                           (change)="onDeductionChange($event, deduction)" /> {{deduction | i18nLabel}}
+                </label>
+            </li>
+        </ul>
+        <button class="btn-box"
+                [disabled]="nbCurrentlySelected() === 0 ? 'disabled' : false"
+                (click)="submit()"
+                translate>
+            COMMON.APPLY_BUTTON
+        </button>
+    </fieldset>
+</div>

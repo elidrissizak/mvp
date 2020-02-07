@@ -1,0 +1,12 @@
+       
+    <div class="ie11-svg-wrapper">
+        <treemap 
+            [data]="data" 
+            [width]="width"
+            [height]="height"
+            (on-cell-click)="onPacketClick($event)"
+            (on-cell-over)="onPacketOver($event)"
+            (on-cell-out)="onPacketOut($event)"
+            (on-right-click)="onRightClick($event)">
+        </treemap>
+    </div>

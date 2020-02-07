@@ -1,0 +1,257 @@
+<div class="links-modal">
+
+        <header (click)="cancel()">
+            <i class="fa fa-chevron-circle-left"
+               aria-hidden="true"></i>
+            <span translate>COMMON.BACK</span>
+        </header>
+        <div>
+            <span *ngFor="let h of history; let i = index">
+                    <strong class="groupby" *ngIf="i < 2">
+                    <kbd>{{getHistoryGroupbyLabel(h)}}</kbd>
+                    : {{getHistoryFilterValue(i)}}<br>
+                </strong>
+            </span>
+        </div><hr>
+        <div class="links-modal-content">
+            <div class="cluster">
+
+                <div class="cluster-infos" *ngIf="bsModalRef.content?.params != null && bsModalRef.content?.params.cluster != null;else other_content">
+                    <div class="row">
+                        <div class="col-md-1 icon">
+                            <icon ref="icon-cluster"></icon>
+                        </div>
+                        <div class="col-md-5">
+                            <links-modal-field label="Cluster number"
+                                               [value]="bsModalRef.content.params.cluster.number">
+                            </links-modal-field>
+                        </div>
+                        <div class="col-md-6">
+                            <links-modal-field label="Account number"
+                                               [value]="bsModalRef.content.params.supplier.code">
+                            </links-modal-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-5">
+                            <links-modal-field label="Organisation"
+                                               [value]="bsModalRef.content.params.organization.code">
+                            </links-modal-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <links-modal-field label="State" *ngIf="bsModalRef.content.params.cluster.invoicingStatus == null"
+                                               [value]="bsModalRef.content.params.cluster.invoicingStatus ? 'Unblocked' : 'Blocked'">
+                            </links-modal-field>
+                            <links-modal-field label="State" *ngIf="bsModalRef.content.params.cluster.invoicingStatus == false"
+                                                [value]="bsModalRef.content.params.cluster.invoicingStatus ? 'Blocked' : 'Unblocked'">
+                            </links-modal-field>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="links">
+
+                    <div *ngFor="let link of links; let i = index">
+                        <div class="link">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <links-modal-field label="NITG"
+                                                       [value]="getNitgCodes(i)">
+                                    </links-modal-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <links-modal-field label="Projet"
+                                                       [value]="getProjectCodes(i)">
+                                    </links-modal-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <links-modal-field label="Usine"
+                                                       [value]="getFactoryCodes(i)">
+                                    </links-modal-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <links-modal-field label="Indice"
+                                                       [value]="getIndexCodes(i)">
+                                    </links-modal-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <footer>
+            <div class="row text-right"
+                 *ngIf="confirmTreat === true">
+                <div class="col-md-12"
+                     translate>
+                    BA.LINKS_MODAL.CONFIRM_TEXT
+                </div>
+            </div>
+
+            <div class="text-right row">
+                <div class="col-md-6 text-left">
+                    <a class="btn btn-rrf btn-rrf-primary"
+                       href="http://rrf.intra.renault.fr/rrf/index.jsp"
+                       target="_blank"
+                       translate>
+                        COMMON.OLD_RRF
+                    </a>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button class="btn btn-rrf btn-rrf-primary"
+                            *ngIf="confirmTreat === false"
+                            (click)="treat()"
+                            translate>
+                        BA.LINKS_MODAL.TREAT_BUTTON
+                    </button>
+                    <div class="confirm"
+                         *ngIf="confirmTreat === true">
+                        <button class="btn btn-rrf btn-rrf-primary"
+                                (click)="confirm()"
+                                translate>
+                            BA.LINKS_MODAL.CONFIRM_BUTTON
+                        </button>
+                        <button class="btn btn-rrf btn-rrf-primary"
+                                (click)="cancel()"
+                                translate>
+                            BA.LINKS_MODAL.CANCEL_BUTTON
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+<!--<div class="links-modal">
+
+    <header (click)="cancel()">
+        <i class="fa fa-chevron-circle-left"
+           aria-hidden="true"></i>
+        <span translate>COMMON.BACK</span>
+    </header>
+
+    <div class="links-modal-content">
+        <div class="cluster"
+             *ngFor="let cluster of bsModalRef.content?.params.suggestions">
+
+            <div class="cluster-infos">
+                <div class="row">
+                    <div class="col-md-1 icon">
+                        <icon ref="icon-cluster"></icon>
+                    </div>
+                    <div class="col-md-5">
+                        <links-modal-field label="Cluster number"
+                                           [value]="cluster.cluster.number">
+                        </links-modal-field>
+                    </div>
+                    <div class="col-md-6">
+                        <links-modal-field label="Account number"
+                                           [value]="cluster.supplier.code">
+                        </links-modal-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-5">
+                        <links-modal-field label="Organisation"
+                                           [value]="cluster.organization.code">
+                        </links-modal-field>
+                    </div>
+                    <div class="col-md-6">
+                        <links-modal-field label="State"
+                                           [value]="cluster.cluster.invoicingStatus ? 'Blocked' : 'Unblocked'">
+                        </links-modal-field>
+                    </div>
+                </div>
+            </div>
+
+            <div class="links">
+
+                <div *ngFor="let link of cluster.clusterLinks">
+                    <div *ngIf="!link.idClusterLink"
+                         class="link">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <links-modal-field label="NITG"
+                                                   [value]="link.nitg?.code">
+                                </links-modal-field>
+                            </div>
+                            <div class="col-md-6">
+                                <links-modal-field label="Projet"
+                                                   [value]="link.project?.code">
+                                </links-modal-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <links-modal-field label="Usine"
+                                                   [value]="link.factory?.code">
+                                </links-modal-field>
+                            </div>
+                            <div class="col-md-6">
+                                <links-modal-field label="Indice"
+                                                   [value]="link.factory?.code">
+                                </links-modal-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="row text-right"
+             *ngIf="confirmTreat === true">
+            <div class="col-md-12"
+                 translate>
+                BA.LINKS_MODAL.CONFIRM_TEXT
+            </div>
+        </div>
+
+        <div class="text-right row">
+            <div class="col-md-6 text-left">
+                <a class="btn btn-rrf btn-rrf-primary"
+                   href="http://rrf.intra.renault.fr/rrf/index.jsp"
+                   target="_blank"
+                   translate>
+                    COMMON.OLD_RRF
+                </a>
+            </div>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-rrf btn-rrf-primary"
+                        *ngIf="confirmTreat === false"
+                        (click)="treat()"
+                        translate>
+                    BA.LINKS_MODAL.TREAT_BUTTON
+                </button>
+                <div class="confirm"
+                     *ngIf="confirmTreat === true">
+                    <button class="btn btn-rrf btn-rrf-primary"
+                            (click)="confirm()"
+                            translate>
+                        BA.LINKS_MODAL.CONFIRM_BUTTON
+                    </button>
+                    <button class="btn btn-rrf btn-rrf-primary"
+                            (click)="cancel()"
+                            translate>
+                        BA.LINKS_MODAL.CANCEL_BUTTON
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>-->

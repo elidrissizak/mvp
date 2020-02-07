@@ -1,0 +1,57 @@
+<div class="bim-with-cf-tab row">
+
+    <div class="controls col-md-4 col-lg-3">
+        <ul class="legends list-unstyled">
+            <li class="checkbox">
+                <label>
+                    <input type="checkbox"
+                           [checked]="isAll()"
+                           (change)="switchAll($event)" /> {{'COMMON.ALL_CHECK_BOX' | translate}}
+                </label>
+            </li>
+            <li class="deduction"
+                *ngFor="let deduction of deductions">
+                <div class="checkbox">
+                    <label [style.color]="deduction.color">
+                        <input type="checkbox"
+                               [checked]="isSelected(deduction)"
+                               (change)="switchByCheckbox($event, deduction)" />
+                        <i class="circle-reference"
+                           [style.background-color]="deduction.color"></i>
+                        {{deduction | i18nLabel}}
+                    </label>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="chart col-md-8 col-lg-9">
+        <div class="ie11-svg-wrapper">
+            <pie [data]="currentDistribution"
+                 width="1200"
+                 height="1000"
+                 radius="300"
+                 inner-radius="0.75"
+                 outer-radius="1"
+                 (sliceClick)="switchByClick($event)"
+                 bold-radius="1.1">
+            </pie>
+        </div>
+    </div>
+    <footer>
+        <div class="selectors col-md-6">
+            <drg-unit-selector [(ngModel)]="unit "
+                               (change)="onUnitChange($event) ">
+            </drg-unit-selector>
+        </div>
+        <div class="col-md-6 text-right ">
+            <button class="btn-box "
+                    (click)="goToBimAssistant() "
+                    disabled="disabled "
+                    [disabled]="nbSelected()===0 ?
+        'disabled' : false "
+                    translate>DB.DISPLAY_BUTTON</button>
+        </div>
+    </footer>
+</div>

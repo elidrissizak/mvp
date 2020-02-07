@@ -1,0 +1,26 @@
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 120000;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow-x: hidden;
+    transition: 0.5s;
+    color: white;
+    background: -moz-linear-gradient(45deg, rgba(30, 87, 153, 1) 0%, rgba(30, 87, 153, 0.99) 1%, rgba(32, 124, 202, 0.64) 80%, rgba(125, 185, 232, 0.3) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(30, 87, 153, 1) 0%, rgba(30, 87, 153, 0.99) 1%, rgba(32, 124, 202, 0.64) 80%, rgba(125, 185, 232, 0.3) 100%);
+    background: linear-gradient(45deg, rgba(30, 87, 153, 1) 0%, rgba(30, 87, 153, 0.99) 1%, rgba(32, 124, 202, 0.64) 80%, rgba(125, 185, 232, 0.3) 100%);
+}
+
+h1 {
+    position: relative;
+    top: 25%;
+    text-align: center;
+    width: 100%;
+    background: white;
+    color: black;
+    padding: 1em;
+}

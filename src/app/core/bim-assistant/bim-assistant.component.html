@@ -1,0 +1,115 @@
+<h1 class="main-section-title">
+    BIM Assistant
+</h1>
+
+<packet-exporter #packetExporter></packet-exporter>
+
+<!-- BREADCRUMBS -->
+<ba-breadcrumbs (apply)="applyHistory($event)"
+                [selected-packet]="
+                drgView.selectedPackets && drgView.selectedPackets.length == 1
+                ? drgView.selectedPackets[0].rawDatum
+                : undefined">
+</ba-breadcrumbs>
+
+<div class="repartition-container">
+
+    <!-- PERIOD PICKER -->
+    <div class="date-filter row">
+        <period-picker [period]="drgView.filters.period"
+                       (on-submit)="onPeriodSubmit(withSupplier, $event)"
+                       (on-close)="period = { startDate: undefined, endDate: undefined }">
+        </period-picker>
+    </div>
+
+    <!-- TREEMAPS -->
+    <div class="row repartitions">
+
+        <!-- TREEMAP WITH-SUPPLIER -->
+        <div class="col-md-6 with-supplier">
+            <div class="repartition-header">
+                <h2 class="col-md-6"
+                    translate>
+                    BA.WITH_SUPPLIER_ACCOUNT_TEXT
+                </h2>
+                <div class="deductions-codes col-md-6">
+                    <deductions-codes [with-supplier]="true"
+                                      [selection-ids]="selectedDeductionsIds[1]"
+                                      (on-submit)="onDeductionsCodesSubmit(withSupplier, $event);">
+                    </deductions-codes>
+                </div>
+            </div>
+            <drgs-treemap [data]="treemapData[1]"
+                          width="1000"
+                          height="500"
+                          #withSupplier
+                          with-supplier="true"
+                          [colors]="TREEMAP_COLORS.withSuppliers"
+                          (on-select-by-click)="onSelectPacketByClick(withSupplier, $event)"
+                          (on-unselect-by-click)="onUnselectPacketByClick(withSupplier, $event)"
+                          (on-mouseover)="onPacketMouseOver(withSupplier, $event);"
+                          (on-mouseout)="onPacketMouseOut(withSupplier, $event);"
+                          (on-right-click)="showExportPacketModal($event, true)"
+                          [active]="activePanel === withSupplier">
+            </drgs-treemap>
+        </div>
+
+        <!-- TREEMAP WITHOUT-SUPPLIER -->
+        <div class="col-md-6 without-supplier">
+            <div class="repartition-header">
+                <h2 class="col-md-6"
+                    translate>
+                    BA.WITHOUT_SUPPLIER_ACCOUNT_TEXT
+                </h2>
+                <div class="deductions-codes col-md-6">
+                    <deductions-codes [with-supplier]="false"
+                                      [selection-ids]="selectedDeductionsIds[0]"
+                                      (on-submit)="onDeductionsCodesSubmit(withoutSupplier,$event);">
+                    </deductions-codes>
+                </div>
+            </div>
+            <drgs-treemap [data]="treemapData[0]"
+                          width="1000"
+                          height="500"
+                          #withoutSupplier
+                          with-supplier="false"
+                          [colors]="TREEMAP_COLORS.withoutSuppliers"
+                          (on-select-by-click)="onSelectPacketByClick(withoutSupplier, $event)"
+                          (on-mouseover)="onPacketMouseOver(withoutSupplier, $event);"
+                          (on-mouseout)="onPacketMouseOut(withoutSupplier, $event);"
+                          (on-right-click)="showExportPacketModal($event, false)"
+                          [active]="activePanel === withoutSupplier">
+            </drgs-treemap>
+        </div>
+    </div>
+</div>
+
+<!-- GROUPBY-BAR -->
+<div class="row groupby">
+    <div class="col-md-12">
+        <groupby-bar [disabled]="
+                        drgView.selectedPackets === undefined || drgView.selectedPackets.length === 0 || drgView.selectedPackets.length > 1
+                        ?  'disabled'
+                        : false"
+                     [disabled-groupby-names]="disabledGroupbyNames[activePanel === withoutSupplier ? 0 : 1]"
+                     [selection]="selectedGroupbys"
+                     (groupby-click)="onGroupbyClick($event)">
+        </groupby-bar>
+    </div>
+</div>
+
+<!-- SUGGESTIONS -->
+<ba-breadcrumbs (apply)="applyHistory($event)"
+                [selected-packet]="
+                    drgView.selectedPackets && drgView.selectedPackets.length == 1
+                    ? drgView.selectedPackets[0].rawDatum
+                    : undefined">
+</ba-breadcrumbs>
+<suggestions [selected-packet]="
+                drgView.selectedPackets && drgView.selectedPackets.length > 0
+                ? drgView.selectedPackets[0]
+                : undefined"
+             [prev-selected-packet]="prevSelectedPackets ? prevSelectedPackets[0] : undefined"
+             [drg-view]="drgView"
+             (modal-closed)="update()">
+</suggestions>

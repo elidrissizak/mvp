@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-sm-6" id="filter">
+        <label for="country" translate>ORGANIZATION.COUNTRY</label>
+        <span class="ui-select">
+            <select [(ngModel)]="countrySelected" (change)="updateOrganisationSorted()">
+                <option translate selected [value]="allCountryLabel">COMMON.ALL</option>
+                <option *ngFor="let country of countries" [value]="country.id">
+                    {{country.id}}
+                </option>
+            </select>
+        </span>
+    </div>
+
+    <div class="col-sm-12">
+        <organizations-table *ngIf="organizationsSorted && currencies" [organizationsList]="organizationsSorted" [currencies]="currencies">
+        </organizations-table>
+    </div>
+</div>

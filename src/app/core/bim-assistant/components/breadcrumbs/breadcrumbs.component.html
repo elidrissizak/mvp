@@ -1,0 +1,14 @@
+<span *ngFor="let h of getHistory(); let i = index">
+    {{ i > 0 ? '&nbsp;|&nbsp;' : ''}}
+    <strong class="groupby"
+            (click)="applyHistory(i)">
+        <kbd>{{getHistoryGroupbyLabel(h)}}</kbd>
+    </strong> : {{getHistoryFilterValue(i)}}
+</span>
+
+
+<!-- <div *ngFor="let h of getHistory(); let i = index">
+    <span (click)="applyHistory(i)">
+        {{getHistoryFilterValue(i)}}
+    </span>
+</div> -->

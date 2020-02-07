@@ -1,0 +1,53 @@
+.links-modal-field {
+    label {
+        font-family: Read;
+        font-size: 12px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.4px;
+        color: #999999;
+    }
+    .input-group {
+        .input-group-addon {
+            &.iga-label {
+                border: none;
+                border-radius: 0;
+                width: 50%;
+                text-align: left;
+                font-family: Read;
+                font-size: 12px;
+                color: #999999;
+                background: white;
+            }
+            input[type="text"] {
+                font-family: Read;
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: left;
+                color: #000000;
+                border-radius: 0;
+            }
+            &.iga-cc {
+                border-radius: 0;
+                background: #ffcc33;
+                color: black;
+                border-color: #ffcc33;
+                i {
+                    color: #666666;
+                }
+            }
+        }
+    }
+    input[type="text"] {
+        border: solid 1px #e1e1e1;
+    }
+    .input-group-addon {
+        cursor: pointer;
+    }
+}

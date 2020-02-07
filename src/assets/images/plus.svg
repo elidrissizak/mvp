@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>BF3C5310-C446-4E0F-A2DF-A2F33B3977C2</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="8.48648649 8.47719298 8.48648649 16 7.51351351 16 7.51351351 8.47719298 0 8.47719298 0 7.49473684 7.51351351 7.49473684 7.51351351 0 8.48648649 0 8.48648649 7.49473684 16 7.49473684 16 8.47719298"></polygon>
+    </defs>
+    <g id="Symbls" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Menu/ICON_MENU_15">
+            <g id="Color/Black" transform="translate(2.000000, 2.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#000000" xlink:href="#path-1"></use>
+                <g mask="url(#mask-2)" id="Rectangle" fill="#000000">
+                    <g transform="translate(-2.000000, -2.000000)">
+                        <rect x="0" y="0" width="20" height="20"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,161 @@
+:host /deep/ {
+    .panel {
+        box-shadow: none;
+    }
+    .panel-group .panel-heading+.panel-collapse>.panel-body,
+    .panel-group .panel-heading+.panel-collapse>.list-group {
+        border: none;
+    }
+    accordion-group.panel {
+        margin-bottom: 15px;
+    }
+    .accordion-heading {
+        border: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #ffcc33;
+        border-radius: 0;
+        margin: 0;
+        padding: 0;
+        height: 80px;
+        vertical-align: bottom;
+        .row {
+            padding: 13px;
+            strong {
+                font-family: Read;
+                font-size: 12px;
+                color: black;
+                height: 40px;
+                display: block;
+            }
+            span {
+                display: block;
+                font-family: Read;
+                font-size: 10px;
+                color: #cccccc;
+            }
+            .icon-cluster {
+                text-align: center;
+                icon {
+                    margin: auto;
+                    width: 20px;
+                    height: 20px;
+                }
+                span {
+                    color: black;
+                }
+            }
+            .icon-control {
+                text-align: center;
+                padding-top: 20px;
+                icon {
+                    margin: auto;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+            .blocked {
+                color: red;
+            }
+            .unblocked {
+                color: green;
+            }
+        }
+    }
+    .accordion-heading-add {
+        border: 1px solid;
+        border-bottom: 1px solid;
+        border-color: #278015;
+        border-radius: 0;
+        margin: 0;
+        padding: 30;
+        height: 80px;
+        vertical-align: bottom;
+        .row {
+            padding: 13px;
+            strong {
+                font-family: Read;
+                font-size: 12px;
+                color: rgb(11, 175, 19);
+                padding : 15px;
+                height: 60px;
+                display: block;
+            }
+            span {
+                display: block;
+                font-family: Read;
+                font-size: 10px;
+                color: #cccccc;
+            }
+            .icon-cluster {
+                text-align: center;
+                icon {
+                    margin: auto;
+                    width: 20px;
+                    height: 20px;
+                }
+                span {
+                    color: black;
+                }
+            }
+            .icon-control {
+                text-align: center;
+                padding-top: 20px;
+                icon {
+                    margin: auto;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+           
+        }
+    }
+    .panel-body {
+        padding: 0;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+.links {
+    margin-left: 30px;
+    margin-right: 0;
+    &>div {
+        background: #f6f6f6;
+        margin-top: 20px;
+        height: 60px;
+        padding-top: 10px;
+        strong {
+            font-family: Read;
+            font-size: 12px;
+            color: black;
+        }
+        span {
+            display: block;
+            font-family: Read;
+            font-size: 10px;
+            color: #666666;
+        }
+    }
+    &.to-be-created div {
+        background-color: #F6F0E1;
+    }
+}
+
+.warranties {
+    //width: 180px;
+    .w-container {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        svg {
+            width: 20px;
+            height: 20px;
+            display: block;
+            fill: #D5D5D5;
+            &.highlight {
+                fill: #FFD24B;
+            }
+        }
+    }
+}

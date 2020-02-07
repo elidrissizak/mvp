@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <g id="collapse" fill="none" fill-rule="evenodd">
+        <circle cx="10" cy="10" r="10" fill="#FC3"/>
+        <path fill="#000" d="M9.25 10.75H4v-1.5h12v1.5h-5.25z"/>
+    </g>
+</svg>

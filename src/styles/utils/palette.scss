@@ -1,0 +1,189 @@
+$srfp-primary-color: (
+    50: #FFCC33,
+    100: #FFECB5, // used for example in progress bar
+    200: #FFCC33,
+    300: #FFCC33,
+    400: #FFCC33,
+    500: #FFCC33,
+    600: #FFCC33,
+    700: #FFCC33,
+    800: #FFCC33,
+    900: #FFCC33,
+    A100: #FFCC33,
+    A200: #FFCC33,
+    A400: #FFCC33,
+    A700: #FFCC33,
+    contrast: (
+        50: #000,
+        100: #000,
+        200: #000,
+        300: #000,
+        400: #000,
+        500: #000,
+        600: #000,
+        700: #000,
+        800: #000,
+        900: #000,
+        A100: #000,
+        A200: #000,
+        A400: #000,
+        A700: #000,
+    )
+);
+
+$srfp-accent-color: (
+    50: #333333,
+    100: #333333,
+    200: #333333,
+    300: #333333,
+    400: #333333,
+    500: #333333,
+    600: #333333,
+    700: #333333,
+    800: #333333,
+    900: #333333,
+    A100: #333333,
+    A200: #333333,
+    A400: #333333,
+    A700: #333333,
+    contrast: (
+        50: #FFF,
+        100: #FFF,
+        200: #FFF,
+        300: #FFF,
+        400: #FFF,
+        500: #FFF,
+        600: #FFF,
+        700: #FFF,
+        800: #FFF,
+        900: #FFF,
+        A100: #FFF,
+        A200: #FFF,
+        A400: #FFF,
+        A700: #FFF,
+    )
+);
+
+$srfp-warn-color: (
+    50: #FF8813,
+    100: #FF8813,
+    200: #FF8813,
+    300: #FF8813,
+    400: #FF8813,
+    500: #FF8813,
+    600: #FF8813,
+    700: #FF8813,
+    800: #FF8813,
+    900: #FF8813,
+    A100: #FF8813,
+    A200: #FF8813,
+    A400: #FF8813,
+    A700: #FF8813,
+    contrast: (
+        50: #FFFFFF,
+        100: #FFFFFF,
+        200: #FFFFFF,
+        300: #FFFFFF,
+        400: #FFFFFF,
+        500: #FFFFFF,
+        600: #FFFFFF,
+        700: #FFFFFF,
+        800: #FFFFFF,
+        900: #FFFFFF,
+        A100: #FFFFFF,
+        A200: #FFFFFF,
+        A400: #FFFFFF,
+        A700: #FFFFFF,
+    )
+);
+
+$srfp-primary: mat-palette($srfp-primary-color, 500, 100, 700);
+$srfp-accent: mat-palette($srfp-primary-color, 500, 100, 700);
+$primary: #FFCC33;
+$warn: #FF8813;
+$error: #d90005;
+$success: #9fc983;
+$grey-1: #333333;
+$grey-2: #666666;
+$grey-3: #999999;
+$grey-4: #CCCCCC;
+$grey-4-t: rgba(204,204,204,0.1);
+
+/* Colors */
+.accent-color {
+    color: $grey-1 !important;
+}
+
+.primary-color {
+    color: $primary !important;
+}
+
+.white {
+    color: #FFF !important;
+}
+
+div[color=primary],span[color=primary],md-icon[color=primary] {
+    color: $primary !important;
+}
+
+div[color=warn],span[color=warn],md-icon[color=warn] {
+    color: $warn !important;
+}
+
+div[color=error],span[color=error],md-icon[color=error] {
+    color: $error !important;
+}
+
+div[color=success],span[color=success],md-icon[color=success] {
+    color: $success !important;
+}
+
+/* Backgrounds */
+.bg-accent {
+    background-color: #333333 !important;
+}
+
+.bg-primary {
+    color: white !important;
+    background-color: #FFCC33 !important;
+}
+
+.bg-white {
+    color: black !important;
+    background-color: #FFFFFF !important;
+}
+
+.bg-error {
+    color: #FFFFFF !important;
+    background-color: $error !important;
+}
+
+.bg-success {
+    color: #FFFFFF !important;
+    background-color: $success !important;
+}
+
+.bg-black {
+    color: white !important;
+    background-color: #000000 !important;
+}
+
+.bg-grey-1 {
+    color: white !important;
+    background-color: $grey-1 !important;
+}
+
+.bg-grey-2 {
+    color: white !important;
+    background-color: $grey-2 !important;
+}
+
+.bg-grey-3 {
+    color: black !important;
+    background-color: $grey-3 !important;
+}
+
+.bg-grey-4 {
+    color: black !important;
+    background-color: $grey-4 !important;
+}

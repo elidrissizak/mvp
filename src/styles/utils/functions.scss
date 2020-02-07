@@ -1,0 +1,73 @@
+@import "variables";
+
+// Implement the rem unit with SCSS so we don't have to actually set a font-size on
+// the user's body element.
+@function rem($multiplier) {
+  $font-size: 10px;
+  @return $multiplier * $font-size;
+}
+
+/// Asset URL builder
+/// @access private
+/// @param {String} $type - Asset type, matching folder name
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the asset
+@function asset($type, $file) {
+  @return url($asset-base-path + '/' + $type + '/' + $file);
+}
+
+/// Image asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function image($file) {
+  @return asset('images', $file);
+}
+
+/// Font asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the font
+/// @require {function} asset
+@function font($file) {
+  @return asset('fonts', $file);
+}
+
+/// Svg asset helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function svg($file) {
+  @return asset('svg', $file);
+}
+
+/// UI-STATE helper
+/// @access public
+/// @param {String} $file - Asset file name, including extension
+/// @return {URL} - A `url()` function leading to the image
+/// @require {function} asset
+@function uistate($class-name) {
+  $class-name: unquote($class-name);
+  @return $class-name;
+}
+
+/// GRID MIXINS
+@function span($number) {
+  @return $number * $bn-grid-width;
+}
+
+// quickly add ellipsis
+@mixin text-ellipsis {
+    overflow: hidden !important;
+    white-space: nowrap !important;;
+    text-overflow: ellipsis !important;;
+}
+
+// specify a context for a style
+@mixin host-context($class) {
+    #{$class} & {
+        @content;
+    }
+}

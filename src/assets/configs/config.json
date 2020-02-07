@@ -1,0 +1,17 @@
+{
+    "name": "configuration name (for debug purpose)",
+    "healthEndpoint": "http://localhost:9090/api/health",
+    "authEndpoint": "http://localhost:9090/api/v1/authenticate",
+    "apiUrl": "http://localhost:9090/api",
+    "oauth": {
+      "LOGIN_URL": "http://localhost:8280/auth/realms/rrf/protocol/openid-connect/auth",
+      "REDIRECT_URL": "http://localhost:4200/authorized",
+      "CLIENT_ID": "client-rrf-frontend",
+      "SCOPE": "openid",
+      "LOGOUT_URL": ""
+    },
+    "startWith": "/core/bim-assistant",
+    "disableAuthentication": true,
+    "mocked": true,
+    "autoDisplayLinksModal": false
+  }

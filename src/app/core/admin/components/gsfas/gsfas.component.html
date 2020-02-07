@@ -1,0 +1,15 @@
+<gsfa-input *ngIf="!readonly"
+            [gsfas]="availableGsfas"
+            (on-add)="onAddGsfa($event)">
+</gsfa-input>
+
+<div class="gsfas"
+     style="display: inline-block">
+    <button type="button"
+            *ngFor="let gsfa of selectedGsfas">
+        <span class="button-text">{{gsfa[labelProp]}}</span>
+        <span class="button-icon glyphicon glyphicon-remove"
+              *ngIf="!readonly"
+              (click)="removeGsfa(gsfa)"></span>
+    </button>
+</div>

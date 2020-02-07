@@ -1,0 +1,50 @@
+@import '../../../styles/utils/variables.scss';
+h1 {
+    font-family: RenaultLife;
+    font-size: 36px;
+    letter-spacing: 1.3px;
+    text-align: left;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+ba-breadcrumbs {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.repartition-container {
+    border-top: 3px solid;
+    border-color: $color-theme;
+    padding: 15px;
+    box-shadow: 0 3px 5px 0px #c0c0c0;
+    .date-filter {
+        height: 40px;
+        margin-bottom: 20px;
+    }
+    .repartition-header {
+        //font-size: 0; // Disable white-spacing in inline-block
+        height: 25px;
+        h2 {
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            font-family: Read;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: left;
+            color: #000000;
+            vertical-align: top;
+        }
+        .deductions-codes {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: 0;
+            vertical-align: top;
+        }
+    }
+}
+
+.groupby {
+    margin-top: 30px;
+}

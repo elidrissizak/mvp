@@ -1,0 +1,37 @@
+
+    <section>
+        <div class="box-slider">
+            <div class="boxe-table-container box-focus-layout">
+                <div class="boxe-table-cell" *ngFor="let section of sections">
+
+                    <h2 class="icon cat-selector" *ngIf="section.sectionName">
+                        <span>{{section.sectionName | translate}}</span>   
+                        <img  src="/assets/images/pictogramme/{{section.sectionName}}.png" style="width:20px; height:20px;"/>                    
+                        
+                    </h2>
+                    <ul class="list-group-filter"> 
+                    
+                        <li class="icon filter" 
+                            *ngFor="let groupby of section.groupbys" 
+                            [class.active]="isSelected(groupby)"
+                            [class.dimmed]="isDisabled(groupby)">
+                            <button
+                                class="controls-button" 
+                                (click)="onGroupbyClick(groupby, section)" >
+                               <!--<svg class="icon-rrf" >
+                                     <use attr.xlink:href="#icon-bar-{{groupby.icon}}" class="icon-off" /> 
+                                    
+                                    <image  attr.xlink:href="/assets/images/pictogramme/{{groupby.icon}}.png" clip-path="url(#circleView)" style=" width:80%; height:80%;"/>
+                                </svg>-->
+                                <img class="icon-rrf" src="/assets/images/pictogramme/{{groupby.icon}}.png" style="width:18px; height:22px;"/>
+                                <br><br><span>{{('BA.'+groupby.label) | translate}}</span>
+                            </button>  
+                            
+                        </li>
+                        
+
+                    </ul>
+                </div>
+            </div>
+        </div>          
+    </section>

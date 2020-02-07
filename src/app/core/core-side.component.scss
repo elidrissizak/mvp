@@ -1,0 +1,78 @@
+@import '../../styles/utils/variables.scss';
+#sidebar {
+    background-color: #f6f6f6;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 20000;
+    width: 240px;
+    transition: all 0.3s ease-in-out;
+    &.closed {
+        left: -240px;
+    }
+    #menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        font-size: 0; // Disable white-spacing in inline-block
+        .menu-item,
+        .menu-header {
+            background: #f6f6f6;
+            display: block;
+            margin: 0;
+            padding: 0;
+            width: 240px;
+            height: 62px;
+            cursor: pointer;
+            border-bottom: 2px solid;
+            border-color: #EEEEEE;
+            &.active {
+                &>.icon {
+                    background: #ffffff;
+                    fill: #F5B029;
+                }
+                &>.menu-label {
+                    background: #ffffff;
+                    border-right: 4px solid;
+                    border-color: #ffcc33;
+                }
+            }
+            .icon {
+                display: inline-block;
+                vertical-align: top;
+                width: 60px;
+                height: 60px;
+                margin: 0;
+                padding: 0;
+                background: #f6f6f6;
+                padding: 15px;
+                icon {
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    color: black;
+                }
+            }
+            .menu-label {
+                background: #f6f6f6;
+                display: inline-block;
+                width: 180px;
+                height: 60px;
+                font-family: $font-family-Renault;
+                font-size: 18px;
+                font-weight: bold;
+                text-align: left;
+                color: #000000;
+                line-height: 60px;
+                a {
+                    color: black;
+                }
+            }
+        }
+    }
+}

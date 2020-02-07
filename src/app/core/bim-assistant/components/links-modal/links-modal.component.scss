@@ -1,0 +1,46 @@
+.links-modal {
+    padding: 1em;
+    header {
+        padding-bottom: 1em;
+        border-bottom: 1px solid;
+        border-color: #999999;
+        margin-bottom: 1em;
+        cursor: pointer;
+    }
+    .cluster {
+        border-bottom: 2px solid;
+        border-color: #d8d8d8;
+        margin-bottom: 10px;
+        .icon {
+            padding-top: 5px;
+            text-align: right;
+            icon {
+                margin: auto;
+                width: 20px;
+                height: 20px;
+            }
+        }
+        .cluster-infos {
+            &>div {
+                margin-bottom: 15px;
+            }
+        }
+        .links {
+            padding-left: 20%;
+            .link {
+                &>div {
+                    margin-bottom: 15px;
+                }
+                border-top: 1px solid;
+                border-color: #d8d8d8;
+                padding-top: 15px;
+            }
+        }
+    }
+    footer {
+        a {
+            vertical-align: top;
+            line-height: 32px;
+        }
+    }
+}
